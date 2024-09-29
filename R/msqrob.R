@@ -139,7 +139,7 @@ msqrobLm <- function(y,
     ## empirical Bayes posterior means
     hlp <- limma::squeezeVar(
         var = vapply(models, getVar, numeric(1)),
-        df = vapply(models, getDF, numeric(1))
+        df = vapply(models, getDF, numeric(1)), robust = robust
     )
 
     ## Put variance and degrees of freedom in appropriate slots
@@ -329,7 +329,7 @@ msqrobLmer <- function(y,
 
   hlp <- limma::squeezeVar(
     var = vapply(models, getVar, numeric(1)),
-    df = vapply(models, getDF, numeric(1))
+    df = vapply(models, getDF, numeric(1)), robust = robust
   )
 
   for (i in seq_len(length(models))) {
